@@ -1,15 +1,19 @@
 import React from "react";
 import "./Product.css";
-import { manageDB } from "../Utilities/fakebd";
+import { addToDB } from "../Utilities/fakebd";
 
 const Product = (props) => {
   const { index, name, age } = props.product;
 
   const cart = (index) => {
-    manageDB(index);
+    addToDB(index);
   };
   // this function is used to understand better.
   //const cartWithPara = () => cart(index);
+
+  const removeFromCart = (index) => {
+    console.log("removed from cart ", index);
+  };
 
   return (
     <div className="product">
@@ -18,6 +22,7 @@ const Product = (props) => {
       <h4>ID :{index}</h4>
       {/* <button onClick={cartWithPara}>Add to cart</button> */}
       <button onClick={() => cart(index)}>Purchase</button>
+      <button onClick={() => removeFromCart(index)}>Remove</button>
     </div>
   );
 };

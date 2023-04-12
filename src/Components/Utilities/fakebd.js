@@ -1,6 +1,6 @@
 // manage data in local storage
 
-const manageDB = (index) => {
+const addToDB = (index) => {
   let shoppingCart;
   const storedCart = localStorage.getItem("shopping-cart");
 
@@ -21,4 +21,8 @@ const manageDB = (index) => {
   localStorage.setItem("shopping-cart", JSON.stringify(shoppingCart));
 };
 
-export { manageDB };
+const removeFromDB = (index) => {
+  console.log("removed form db", index);
+};
+
+export { addToDB, removeFromDB };
