@@ -22,7 +22,15 @@ const addToDB = (index) => {
 };
 
 const removeFromDB = (index) => {
-  console.log("removed form db", index);
+  const storedCart = localStorage.getItem("shopping-cart");
+  if (storedCart) {
+    const shoppingCart = JSON.parse(storedCart);
+    if (index in shoppingCart) {
+      // deleting a specific property form an object
+      delete shoppingCart[index];
+      localStorage.setItem("shopping-cart", JSON.stringify(shoppingCart));
+    }
+  }
 };
 
 export { addToDB, removeFromDB };

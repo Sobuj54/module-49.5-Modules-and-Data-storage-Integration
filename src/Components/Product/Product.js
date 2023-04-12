@@ -1,6 +1,6 @@
 import React from "react";
 import "./Product.css";
-import { addToDB } from "../Utilities/fakebd";
+import { addToDB, removeFromDB } from "../Utilities/fakedb";
 
 const Product = (props) => {
   const { index, name, age } = props.product;
@@ -12,7 +12,7 @@ const Product = (props) => {
   //const cartWithPara = () => cart(index);
 
   const removeFromCart = (index) => {
-    console.log("removed from cart ", index);
+    removeFromDB(index);
   };
 
   return (
