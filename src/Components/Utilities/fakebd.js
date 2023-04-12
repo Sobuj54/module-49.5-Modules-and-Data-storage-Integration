@@ -1,13 +1,18 @@
 // manage data in local storage
 
 const manageDB = (index) => {
-  const quantity = localStorage.getItem(index);
+  let shoppingCart = {};
+  const quantity = shoppingCart[index];
   if (quantity) {
-    const newQuantity = parseInt(quantity) + 1;
-    localStorage.setItem(index, newQuantity);
+    const newQuantity = quantity + 1;
+    shoppingCart[index] = newQuantity;
+    // localStorage.setItem(index, newQuantity);
   } else {
-    localStorage.setItem(index, 1);
+    // localStorage.setItem(index, 1);
+    shoppingCart[index] = 1;
   }
+
+  localStorage.setItem(index, JSON.stringify(shoppingCart));
 };
 
 export { manageDB };
